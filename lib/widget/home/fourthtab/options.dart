@@ -158,57 +158,62 @@ class _OptionsWidgetState extends State<OptionsWidget> {
             onTap: () {
               return showDialog(
                   context: context,
-                  child: Dialog(
-                    child: Container(
-                        height:
-                            350 * (MediaQuery.of(context).size.height / 760),
-                        child: ListView(
-                          children: [
-                            SizedBox(
-                              height: 20 *
-                                  (MediaQuery.of(context).size.height / 760),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Hình ảnh trang mở đầu",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text(
-                                  "Pinterest: https://ar.pinterest.com/pin/692076667716298441/\nhttps://i.pinimg.com/originals/69/ba/79/69ba7915d638b86e48242b181ce57ea2.jpg"),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Trang tin tức",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text("https://tinanime.com/tin-tuc"),
-                            ),
-                            ListTile(
-                              title: Text(
-                                "Dữ liệu hình ảnh",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text("https://truyentranh24.com/"),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                  builder: (context) => Dialog(
+                        child: Container(
+                            height: 350 *
+                                (MediaQuery.of(context).size.height / 760),
+                            child: ListView(
                               children: [
-                                FlatButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop(false);
-                                    },
-                                    child: Text(
-                                      'Tắt',
-                                      style: TextStyle(color: Colors.blue),
-                                    )),
+                                SizedBox(
+                                  height: 20 *
+                                      (MediaQuery.of(context).size.height /
+                                          760),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Hình ảnh trang mở đầu",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text(
+                                      "Pinterest: https://ar.pinterest.com/pin/692076667716298441/\nhttps://i.pinimg.com/originals/69/ba/79/69ba7915d638b86e48242b181ce57ea2.jpg"),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Trang tin tức",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle:
+                                      Text("https://tinanime.com/tin-tuc"),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Dữ liệu hình ảnh",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text("https://truyentranh24.com/"),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    FlatButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop(false);
+                                        },
+                                        child: Text(
+                                          'Tắt',
+                                          style: TextStyle(color: Colors.blue),
+                                        )),
+                                  ],
+                                ),
                               ],
-                            ),
-                          ],
-                        )),
-                  ));
+                            )),
+                      ));
             },
             leading: Icon(
               Icons.insert_link,

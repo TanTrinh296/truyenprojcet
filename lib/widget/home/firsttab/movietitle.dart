@@ -105,7 +105,7 @@ class _MovieTitleWidgetState extends State<MovieTitleWidget> {
             indicatorSpace: 8.0,
             padding: EdgeInsets.all(5.0),
             indicatorColor: Style.ColorScreen.secondColor,
-            pageView: PageView.builder(
+            child: PageView.builder(
                 //allowImplicitScrolling: true,
                 //pageSnapping: true,
                 controller: _pagecontroller,

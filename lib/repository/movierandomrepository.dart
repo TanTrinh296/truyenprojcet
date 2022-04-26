@@ -9,7 +9,8 @@ class MovieRanDomRepository {
   Future<dynamic> getMovies() async {
     try {
       dynamic movie;
-      http.Response response = await http.get(url + "movie/getrandommovie");
+      http.Response response =
+          await http.get(Uri.parse(url + "movie/getrandommovie"));
       movie = json.decode(response.body);
       // print(movie);
       return movie;

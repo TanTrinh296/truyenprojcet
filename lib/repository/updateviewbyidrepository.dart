@@ -6,12 +6,13 @@ import 'package:MovieProject/model/movie_response.dart';
 
 class UpdateViewByIDRepository {
   final String url = "https://truyenapi.herokuapp.com/";
-   getMovies(String id) async {
+  getMovies(String id) async {
     // try {
     //dynamic movie;
-    http.Response response = await http.patch(url + "movie/updateviewbyid/$id");
+    http.Response response =
+        await http.patch(Uri.parse(url + "movie/updateviewbyid/$id"));
     //movie = json.decode(response.body);
-   // print(movie);
+    // print(movie);
     //return movie;
     // }
     //  catch (error, stackTrace) {

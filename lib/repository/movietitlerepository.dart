@@ -11,7 +11,7 @@ class MovieTitleRepository {
   Future<dynamic> getMovieTitles() async {
     try {
       dynamic movie;
-      http.Response response = await http.get(url + "movietitle/");
+      http.Response response = await http.get(Uri.parse(url + "movietitle/"));
       movie = json.decode(response.body);
       // print(movie);
       return movie;

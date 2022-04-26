@@ -9,7 +9,7 @@ class MovieRepository {
   Future<dynamic> getMovies() async {
     try {
       dynamic movie;
-      http.Response response = await http.get(url + "movie/");
+      http.Response response = await http.get(Uri.parse(url + "movie/"));
       movie = json.decode(response.body);
       // print(movie);
       return movie;

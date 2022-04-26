@@ -9,7 +9,8 @@ class MovieByIDRepository {
   Future<dynamic> getMovies(String id) async {
     try {
       dynamic movie;
-      http.Response response = await http.get(url + "movie/getmoviebyid/$id");
+      http.Response response =
+          await http.get(Uri.parse(url + "movie/getmoviebyid/$id"));
       movie = json.decode(response.body);
       print(response.statusCode);
       return movie;

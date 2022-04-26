@@ -10,8 +10,8 @@ class MovieGetEpisodeByIDRepository {
     try {
       dynamic body = {"title": title};
       dynamic movie;
-      http.Response response =
-          await http.post(url + "movie/getepisodebyid/$id", body: body);
+      http.Response response = await http
+          .post(Uri.parse(url + "movie/getepisodebyid/$id"), body: body);
       movie = json.decode(response.body);
       // print(movie);
       return movie;

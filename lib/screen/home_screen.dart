@@ -204,96 +204,101 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             onPressed: () {
                               return showDialog(
                                   context: context,
-                                  child: Dialog(
-                                    child: Container(
-                                      height: 700,
-                                      width: MediaQuery.of(context).size.width,
-                                      child: ListView(
-                                        children: [
-                                          ListTile(
-                                            leading: Text(
-                                              "Load lâu?",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          ListTile(
-                                            subtitle: Text(
-                                                "Xin lỗi vì sự bất tiện này! Nếu trong quá trình trải nghiệm ứng dụng load hơn bình thường thì mong bạn đọc cố găng chờ từ 15 đến 30 giây hoặc xem tin tức trong thời gian chờ."),
-                                          ),
-                                          ListTile(
-                                            leading: Text(
-                                              "Hình ảnh lỗi?",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          ListTile(
-                                            subtitle: Text(
-                                                "Nếu tải ảnh bị lỗi thì hãy tắt app và mở lại, hãy chắc chắn rằng thiết bị đang kết nối với internet."),
-                                          ),
-                                          ListTile(
-                                            leading: Text(
-                                              "Lời nhắn",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          ListTile(
-                                              subtitle: Text(
-                                                  "Ứng dụng này được phát triển chỉ nhằm mục đích học tập và mang tính chất cộng đồng. Nếu bạn đọc cảm thấy có trải nghiệm tốt trong quá trình sử dụng thì có thể nhấn vào xem quảng cáo để ủng hộ và tạo động lực để mình phát triển ứng dụng trong tương lai. Quảng cáo sẽ được đưa vào mục chọn lựa để không ảnh hưởng đến trải nghiệm của bạn đọc.")),
-                                          ListTile(
-                                            subtitle: Text(
-                                                "Ứng dụng được phát triển bởi một sinh viên nên kinh nghiệm và kinh phí thấp. Chỉ có thể tận dụng những công nghệ sẳn có và miễn phí nên có thể sẽ cản trở bạn đọc trong việc trải nghiệm. Xin lỗi vì sự bất tiện này!"),
-                                          ),
-                                          ListTile(
-                                            leading: Text(
-                                              "Kết",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          ListTile(
-                                            subtitle: Text(
-                                                "Ứng dụng này cũng vì mục đích nhận phản hồi của người dùng. Vì vậy, nếu bạn đọc trong quá trình trải nghiệm có điểm gì hài lòng hoặc không hài lòng thì hãy viết đánh giá cho mình biết nhé! "),
-                                          ),
-                                          ListTile(
-                                            subtitle: Text("Cảm ơn!"),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                  builder: (context) => Dialog(
+                                        child: Container(
+                                          height: 700,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          child: ListView(
                                             children: [
-                                              FlatButton(
-                                                  onPressed: () {
-                                                    // Navigator.of(context)
-                                                    //     .pop(false);
-                                                  },
-                                                  child: Text(
-                                                    'Đánh giá',
-                                                    style: TextStyle(
-                                                        color: Colors.blue),
-                                                  )),
-                                              FlatButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context)
-                                                        .pop(false);
-                                                  },
-                                                  child: Text(
-                                                    'Tắt',
-                                                    style: TextStyle(
-                                                        color: Colors.blue),
-                                                  )),
+                                              ListTile(
+                                                leading: Text(
+                                                  "Load lâu?",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              ListTile(
+                                                subtitle: Text(
+                                                    "Xin lỗi vì sự bất tiện này! Nếu trong quá trình trải nghiệm ứng dụng load hơn bình thường thì mong bạn đọc cố găng chờ từ 15 đến 30 giây hoặc xem tin tức trong thời gian chờ."),
+                                              ),
+                                              ListTile(
+                                                leading: Text(
+                                                  "Hình ảnh lỗi?",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              ListTile(
+                                                subtitle: Text(
+                                                    "Nếu tải ảnh bị lỗi thì hãy tắt app và mở lại, hãy chắc chắn rằng thiết bị đang kết nối với internet."),
+                                              ),
+                                              ListTile(
+                                                leading: Text(
+                                                  "Lời nhắn",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              ListTile(
+                                                  subtitle: Text(
+                                                      "Ứng dụng này được phát triển chỉ nhằm mục đích học tập và mang tính chất cộng đồng. Nếu bạn đọc cảm thấy có trải nghiệm tốt trong quá trình sử dụng thì có thể nhấn vào xem quảng cáo để ủng hộ và tạo động lực để mình phát triển ứng dụng trong tương lai. Quảng cáo sẽ được đưa vào mục chọn lựa để không ảnh hưởng đến trải nghiệm của bạn đọc.")),
+                                              ListTile(
+                                                subtitle: Text(
+                                                    "Ứng dụng được phát triển bởi một sinh viên nên kinh nghiệm và kinh phí thấp. Chỉ có thể tận dụng những công nghệ sẳn có và miễn phí nên có thể sẽ cản trở bạn đọc trong việc trải nghiệm. Xin lỗi vì sự bất tiện này!"),
+                                              ),
+                                              ListTile(
+                                                leading: Text(
+                                                  "Kết",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              ListTile(
+                                                subtitle: Text(
+                                                    "Ứng dụng này cũng vì mục đích nhận phản hồi của người dùng. Vì vậy, nếu bạn đọc trong quá trình trải nghiệm có điểm gì hài lòng hoặc không hài lòng thì hãy viết đánh giá cho mình biết nhé! "),
+                                              ),
+                                              ListTile(
+                                                subtitle: Text("Cảm ơn!"),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  FlatButton(
+                                                      onPressed: () {
+                                                        // Navigator.of(context)
+                                                        //     .pop(false);
+                                                      },
+                                                      child: Text(
+                                                        'Đánh giá',
+                                                        style: TextStyle(
+                                                            color: Colors.blue),
+                                                      )),
+                                                  FlatButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop(false);
+                                                      },
+                                                      child: Text(
+                                                        'Tắt',
+                                                        style: TextStyle(
+                                                            color: Colors.blue),
+                                                      )),
+                                                ],
+                                              ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ));
+                                        ),
+                                      ));
                             }),
                       ),
                     ),

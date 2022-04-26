@@ -13,8 +13,8 @@ import 'package:MovieProject/widget/detail/offer.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:MovieProject/style/theme.dart' as Style;
-import 'package:flutter_native_admob/flutter_native_admob.dart';
-import 'package:flutter_native_admob/native_admob_controller.dart';
+// import 'package:flutter_native_admob/flutter_native_admob.dart';
+// import 'package:flutter_native_admob/native_admob_controller.dart';
 
 class TabBarDetail extends StatefulWidget {
   final dynamic argument;
@@ -30,8 +30,8 @@ class _TabBarDetailState extends State<TabBarDetail>
   HistoryBloc _historyBloc = HistoryBloc();
   TabController _tabController;
   // final _nativeAd = NativeAdmob(adUnitID: AdsManager.bannerId);
-  final _nativeAdController = NativeAdmobController();
-  // final _nativeAd = NativeAdmob(adUnitID: AdsManager.bannerId); 
+  // final _nativeAdController = NativeAdmobController();
+  // final _nativeAd = NativeAdmob(adUnitID: AdsManager.bannerId);
   double _height = 0;
   StreamSubscription _subscription;
   // bool _checkTabbar;
@@ -40,7 +40,7 @@ class _TabBarDetailState extends State<TabBarDetail>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _subscription = _nativeAdController.stateChanged.listen(_onStateChanged);
+    // _subscription = _nativeAdController.stateChanged.listen(_onStateChanged);
     // _checkTabbar = false;
     _movieByIDBloc.getMovies(widget.argument["_id"]);
     _tabController = TabController(length: 2, vsync: this);
@@ -52,28 +52,28 @@ class _TabBarDetailState extends State<TabBarDetail>
     // TODO: implement dispose
     super.dispose();
     _subscription.cancel();
-    _nativeAdController.dispose();
+    // _nativeAdController.dispose();
     _tabController.dispose();
   }
 
-  void _onStateChanged(AdLoadState state) {
-    switch (state) {
-      case AdLoadState.loading:
-        setState(() {
-          _height = 0;
-        });
-        break;
-
-      case AdLoadState.loadCompleted:
-        setState(() {
-          _height = 150;
-        });
-        break;
-
-      default:
-        break;
-    }
-  }
+  // void _onStateChanged(AdLoadState state) {
+  //   switch (state) {
+  //     case AdLoadState.loading:
+  //       setState(() {
+  //         _height = 0;
+  //       });
+  //       break;
+  //
+  //     case AdLoadState.loadCompleted:
+  //       setState(() {
+  //         _height = 150;
+  //       });
+  //       break;
+  //
+  //     default:
+  //       break;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -215,214 +215,196 @@ class _TabBarDetailState extends State<TabBarDetail>
                           //     // color: Style.ColorScreen.mainColor,
                           //     child: ListView(
                           //       children: <Widget>[
-                                  //Container của chi tiết
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Table(
-                                        children: [
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Tên",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['ten'],
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Trạng thái",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['trangthai'],
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Tác giả",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['tacgia'],
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Thể loại",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                                margin: EdgeInsets.all(5),
-                                                child: Text(
-                                                    _getTyle(data['theloai']),
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Lượt xem",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['view'].toString(),
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Chương mới nhất",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['episode'][
-                                                    data['episode'].length -
-                                                        1]["title"],
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ]),
-                                          TableRow(children: [
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                "Ngày cập nhật",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['episode'][
-                                                    data['episode'].length -
-                                                        1]["date"],
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ])
-                                        ],
+                          //Container của chi tiết
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Table(
+                                children: [
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Tên",
+                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ),
-                                  ),
-                                  //Container của nội dung
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                            margin: EdgeInsets.all(5),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Text(
-                                                  "Nội dung:",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                              margin: EdgeInsets.all(5),
-                                              child: Text(
-                                                data['noidung'],
-                                                style: TextStyle(
-                                                    color: Colors.yellowAccent),
-                                              ))
-                                        ],
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['ten'],
+                                        style: TextStyle(color: Colors.white),
                                       ),
+                                    ),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Trạng thái",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['trangthai'],
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Tác giả",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['tacgia'],
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Thể loại",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                        margin: EdgeInsets.all(5),
+                                        child: Text(_getTyle(data['theloai']),
+                                            style: TextStyle(
+                                                color: Colors.white))),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Lượt xem",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['view'].toString(),
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Chương mới nhất",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['episode']
+                                                [data['episode'].length - 1]
+                                            ["title"],
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ]),
+                                  TableRow(children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        "Ngày cập nhật",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['episode']
+                                                [data['episode'].length - 1]
+                                            ["date"],
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ])
+                                ],
+                              ),
+                            ),
+                          ),
+                          //Container của nội dung
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "Nội dung:",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                   Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                            child: Text(
-                                              "Đề xuất",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Container(
-                                              height: 200,
-                                              child: OfferWidget()),
-                                          Container(
-                                            height: _height,
-                                            padding: EdgeInsets.all(10),
-                                            margin:
-                                                EdgeInsets.only(top: 20.0),
-                                            child: NativeAdmob(
-                                              // Your ad unit id
-                                              adUnitID: AdsManager.bannerId,
-                                              controller: _nativeAdController,
-                                              type: NativeAdmobType.banner,
-                                              // Don't show loading widget when in loading state
-                                              loading: Container(),
-                                              
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                      margin: EdgeInsets.all(5),
+                                      child: Text(
+                                        data['noidung'],
+                                        style: TextStyle(
+                                            color: Colors.yellowAccent),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text(
+                                      "Đề xuất",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
                                     ),
-                                  )
-                              //   ],
-                              // )
-                              // ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(height: 200, child: OfferWidget()),
+                                  // Container(
+                                  //   height: _height,
+                                  //   padding: EdgeInsets.all(10),
+                                  //   margin:
+                                  //       EdgeInsets.only(top: 20.0),
+                                  //   child: NativeAdmob(
+                                  //     // Your ad unit id
+                                  //     adUnitID: AdsManager.bannerId,
+                                  //     controller: _nativeAdController,
+                                  //     type: NativeAdmobType.banner,
+                                  //     // Don't show loading widget when in loading state
+                                  //     loading: Container(),
+                                  //
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                          )
+                          //   ],
+                          // )
+                          // ),
                         ],
                       ),
                     ),

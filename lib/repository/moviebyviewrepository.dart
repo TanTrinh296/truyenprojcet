@@ -8,12 +8,13 @@ class MovieByViewRepository {
   final String url = "https://truyenapi.herokuapp.com/";
   Future<dynamic> getMovies() async {
     try {
-    dynamic movie;
-    http.Response response = await http.get(url + "movie/getallbyview");
-    movie = json.decode(response.body);
-   // print(movie);
-    return movie;
-     } on SocketException {
+      dynamic movie;
+      http.Response response =
+          await http.get(Uri.parse(url + "movie/getallbyview"));
+      movie = json.decode(response.body);
+      // print(movie);
+      return movie;
+    } on SocketException {
       return "Error";
     } on HttpException {
       return "Error";
